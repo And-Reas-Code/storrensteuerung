@@ -24,12 +24,12 @@ GPIO.setup(PIN_RAIN,GPIO.IN,pull_up_down=GPIO.PUD_UP)
 class Shuttercontrol():
     def shutterSouthIn(self):
         GPIO.output(PIN_REL_1,GPIO.HIGH)
-        time.sleep(.4)
+        time.sleep(.6)
         GPIO.output(PIN_REL_1,GPIO.LOW)
         print("shutterSouthIn")
     def shutterSouthOut(self):
         GPIO.output(PIN_REL_2,GPIO.HIGH)
-        time.sleep(.4)
+        time.sleep(.6)
         GPIO.output(PIN_REL_2,GPIO.LOW)
         print("shutterSouthOut")
     def shutterWestUp(self):
