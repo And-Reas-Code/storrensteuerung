@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <title>Storrensteuerung</title>
+		<style>
+		    .picture {
+				font-size: 16px;
+				font-weight: 700;
+				color: #000000;
+				line-height: 1.3;
+				padding: 15px 36px;
+				width: 240px;
+				box-sizing: border-box;
+				margin: 4px 2px;
+				border: 2px solid #4CAF50; /* Green */
+				box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+				appearance: none;
+				background-color: #fff;
+				background-position: right .7em top 50%, 0 0;
+				background-size: .65em auto, 100%;
+			}
+			.pmode {
+				width: 164px;
+			}
+			.button {
+				width: 140px;
+				font-weight: 700;
+				border: none;
+				color: white;
+				padding: 15px 36px;
+				text-align: center;
+				font-size: 16px;
+				margin: 4px 2px;
+				cursor: pointer;
+				box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+				background-color: white; 
+				color: black; 
+				border: 2px solid #4CAF50; /* Green */
+			}
+			.button:hover {
+				color: white;
+				background-color: #4CAF50; /* Green */
+			}
+			.button:disabled {
+				background-color:lightgray;
+			}
+			.button2 {
+				background-color: white; 
+				color: black; 
+				border: 2px solid #008CBA; /* Blue */
+			}
+			.button2:hover {
+				color: white;
+				background-color: #008CBA; /* Blue */
+			}
+			.mbutton {
+				width: 240px;
+				font-weight: 700;
+				border: none;
+				color: white;
+				padding: 15px 36px;
+				text-align: center;
+				font-size: 16px;
+				margin: 4px 2px;
+				cursor: pointer;
+				box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+				background: url(mode2.png);
+			}
+
+			.button3 {
+				background-color: white; 
+				color: black; 
+				border: 2px solid #008CBA; /* Blue */
+				/*background: none;*/
+			}
+			.button3:hover {
+				color: white;
+				background-color: #008CBA; /* Blue */
+			}
+		
+			/* SELECT */
+			.select-css {
+				font-size: 16px;
+				font-weight: 700;
+				color: #000000;
+				line-height: 1.3;
+				padding: 15px 36px;
+				width: 240px;
+				box-sizing: border-box;
+				margin: 4px 2px;
+				border: 2px solid #4CAF50; /* Green */
+				box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+				appearance: none;
+				background-color: #fff;
+				background-position: right .7em top 50%, 0 0;
+				background-size: .65em auto, 100%;
+				cursor: pointer;
+			}
+
+			.select-css:hover {
+				color: white;
+				background-color: #4CAF50; /* Green */
+			}
+	
+
+		</style>
+    </head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <body>
+		<div class="w3-container w3-teal">
+			<header>
+				<h1>Steuerung</h1>
+			</header>
+		</div>
+		
+
+		
+		<div class="w3-container">
+			<h2>Storren</h2>
+			<h3>Sonnenstorre Süd</h3>
+			<p>Einfahren / Ausfahren:</p>
+			<div class="w3-container">
+				<div class="w3-container w3-half">
+					<button class="button btnStoSudEin">EIN</button>
+				</div>
+				<div class="w3-container w3-half">
+					<button class="button btnStoSudAus">AUS</button>
+				</div>
+			</div>
+			<h3>Storre West</h3>
+			<p>Auf / Ab:</p>
+			<div class="w3-container">
+				<div class="w3-container w3-half">
+					<button class="button btnStoWestAuf">AUF</button>
+				</div>
+				<div class="w3-container w3-half">
+					<div class="button btnStoWestAb">AB</div>
+				</div>
+			</div>
+			<h3>Automatik</h3>
+			<p>Wind / Regen:</p>
+			<div class="w3-container">
+				<div class="w3-container w3-half">
+					<button class="button btnWindRegAuto">AUTO</button>
+				</div>
+				<div class="w3-container w3-half">
+					<label>Automat</label>
+					<div class="labWindRegAuto">?</div>
+				</div>
+			</div>
+			<p>Sonne:</p>
+			<div class="w3-container">
+				<div class="w3-container w3-half">
+					<button class="button btnSunAuto">AUTO</button>
+				</div>
+				<div class="w3-container w3-half">
+					<label>Automat</label>
+					<div class="labSunAuto">?</div>
+				</div>
+			</div>
+			<h3>Messwerte</h3>
+			<p>Windsensor:</p>
+			<div class="w3-container">
+				<div class="labWindVal">?</div>
+			</div>
+			<p>Regensensor:</p>
+			<div class="w3-container">
+				<div class="labRainVal">?</div>
+			</div>
+			<p>Sonnensensor:</p>
+			<div class="w3-container">
+				<div class="labSunVal">?</div>
+			</div>
+			<p>Anzahl Benutzer online:</p>
+			<div class="w3-container">
+				<div class="users">?</div>
+			</div>
+		</div>
+
+		<script>
+			var ip = location.host,
+				btnStoSudEin = document.querySelector('.btnStoSudEin'),
+				btnStoSudAus = document.querySelector('.btnStoSudAus'),
+				btnStoWestAuf = document.querySelector('.btnStoWestAuf'),
+				btnStoWestAb = document.querySelector('.btnStoWestAb'),
+				btnWindRegAuto = document.querySelector('.btnWindRegAuto'),
+				labWindRegAuto = document.querySelector('.labWindRegAuto'),
+				btnSunAuto = document.querySelector('.btnSunAuto'),
+				labSunAuto = document.querySelector('.labSunAuto'),
+				labWindVal = document.querySelector('.labWindVal'),
+				labRainVal = document.querySelector('.labRainVal'),
+				labSunVal = document.querySelector('.labSunVal'),
+				users = document.querySelector('.users'),
+				websocket = new WebSocket("ws://" + ip + ":6789/");
+                //websocket = new WebSocket("ws://192.168.100.123:6789/");
+
+			btnStoSudEin.onclick = function (event) {
+                websocket.send(JSON.stringify({action: 'btnStoSudEin'}));
+            }
+            btnStoSudAus.onclick = function (event) {
+                websocket.send(JSON.stringify({action: 'btnStoSudAus'}));
+            }
+			btnStoWestAuf.onclick = function (event) {
+                websocket.send(JSON.stringify({action: 'btnStoWestAuf'}));
+            }
+            btnStoWestAb.onclick = function (event) {
+                websocket.send(JSON.stringify({action: 'btnStoWestAb'}));
+            }
+			btnWindRegAuto.onclick = function (event) {
+                websocket.send(JSON.stringify({action: 'btnWindRegAuto'}));
+            }
+            btnSunAuto.onclick = function (event) {
+                websocket.send(JSON.stringify({action: 'btnSunAuto'}));
+            }
+			
+            websocket.onmessage = function (event) {
+                data = JSON.parse(event.data);
+                switch (data.type) {
+					case 'windAuto':
+					    if (data.value == true) {
+							labWindRegAuto.textContent = "ON";
+						} else {
+							labWindRegAuto.textContent = "OFF";
+						}
+                        break;
+					case 'sunAuto':
+					    if (data.value == true) {
+							labSunAuto.textContent = "ON";
+						} else {
+							labSunAuto.textContent = "OFF";
+						}
+                        break;
+                    case 'windLevel':
+						labWindVal.textContent = data.value;
+						break;
+					case 'rain':
+					    if (data.value == true) {
+							labRainVal.textContent = "ES REGNET ...";
+						} else {
+							labRainVal.textContent = "KEIN REGEN ...";
+						}
+                        break;
+					case 'sunLevel':
+						labSunVal.textContent = data.value;
+                        break;
+                    case 'users':
+                        users.textContent = (
+                            data.count.toString() + " user" +
+                            (data.count == 1 ? "" : "s"));
+                        break;
+                    default:
+                        console.error(
+                            "unsupported event", data);
+                }
+            };
+        </script>
+		
+    </body>
+</html>
