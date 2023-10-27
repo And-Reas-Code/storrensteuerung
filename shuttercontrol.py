@@ -6,7 +6,9 @@ PIN_REL_1 = 22
 PIN_REL_2 = 23
 PIN_REL_3 = 24
 PIN_REL_4 = 25
-PIN_RAIN = 27
+PIN_WIND = 19
+PIN_RAIN = 20
+PIN_SUNNY = 21
 
 ## GPIO definitionen
 GPIO.setmode(GPIO.BCM)
@@ -19,7 +21,17 @@ GPIO.setup(PIN_REL_3,GPIO.OUT)
 GPIO.output(PIN_REL_3,GPIO.LOW)
 GPIO.setup(PIN_REL_4,GPIO.OUT)
 GPIO.output(PIN_REL_4,GPIO.LOW)
-GPIO.setup(PIN_RAIN,GPIO.IN,pull_up_down=GPIO.PUD_UP)
+
+GPIO.setup(PIN_WIND,GPIO.OUT)
+GPIO.output(PIN_WIND,GPIO.LOW)
+GPIO.setup(PIN_RAIN,GPIO.OUT)
+GPIO.output(PIN_RAIN,GPIO.LOW)
+GPIO.setup(PIN_SUNNY,GPIO.OUT)
+GPIO.output(PIN_SUNNY,GPIO.LOW)
+
+#GPIO.setup(PIN_WIND,GPIO.IN,pull_up_down=GPIO.PUD_UP)
+#GPIO.setup(PIN_RAIN,GPIO.IN,pull_up_down=GPIO.PUD_UP)
+#GPIO.setup(PIN_SUNNY,GPIO.IN,pull_up_down=GPIO.PUD_UP)
 
 class Shuttercontrol():
     def shutterSouthIn(self):
@@ -50,3 +62,19 @@ class Shuttercontrol():
             print("It is raining!")
             return True
         return True
+    def isItWindy(self):
+        if GPIO.input(PIN_WIND)==1:
+            print("It isn't windy!")
+            return False
+        if GPIO.input(PIN_WIND)==0:
+            print("It is windy!")
+            return True
+        return True
+    def isItSunny(self):
+        if GPIO.input(PIN_SUNNY)==1:
+            print("It isn't sunny!")
+            return False
+        if GPIO.input(PIN_SUNNY)==0:
+            print("It is sunny!")
+            return True
+        return False

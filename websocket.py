@@ -31,9 +31,9 @@ class SutterDeviceControl:
         self.device = device
         self.isWindRainAuto = False
         self.isSunAuto = False
-        self.windLevel = 100
+        self.windLevel = False
         self.itsRaining = False
-        self.sunLevel = 50
+        self.sunLevel = False
         self._observers = set()
         self._subject_state = None
 
@@ -44,6 +44,7 @@ class SutterDeviceControl:
         return self.isSunAuto
 
     def get_wind_level(self):
+        self.windLevel = self.device.isItWindy()
         return self.windLevel
 
     def get_rain_state(self):
@@ -51,6 +52,7 @@ class SutterDeviceControl:
         return self.itsRaining
 
     def get_sun_level(self):
+        self.sunLevel = self.device.isItSunny()
         return self.sunLevel
 
     def do_shutter_sud_in(self):

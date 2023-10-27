@@ -233,7 +233,12 @@
 						}
                         break;
                     case 'windLevel':
-						labWindVal.textContent = data.value;
+						//labWindVal.textContent = data.value;
+						if (data.value == true) {
+							labWindVal.textContent = "ES WINDET ...";
+						} else {
+							labWindVal.textContent = "KEIN WIND ...";
+						}
 						break;
 					case 'rain':
 					    if (data.value == true) {
@@ -243,7 +248,12 @@
 						}
                         break;
 					case 'sunLevel':
-						labSunVal.textContent = data.value;
+						//labSunVal.textContent = data.value;
+						if (data.value == true) {
+							labSunVal.textContent = "SONNENSCHEIN ...";
+						} else {
+							labSunVal.textContent = "KEINE SONNE ...";
+						}
                         break;
                     case 'users':
                         users.textContent = (
