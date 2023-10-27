@@ -55,26 +55,26 @@ class Shuttercontrol():
         GPIO.output(PIN_REL_4,GPIO.LOW)
         print("shutterWestDown")
     def isItRaining(self):
-        if GPIO.input(PIN_RAIN)==1:
+        if GPIO.input(PIN_RAIN)==0:
             print("It isn't raining!")
             return False
-        if GPIO.input(PIN_RAIN)==0:
+        if GPIO.input(PIN_RAIN)==1:
             print("It is raining!")
             return True
         return True
     def isItWindy(self):
-        if GPIO.input(PIN_WIND)==1:
+        if GPIO.input(PIN_WIND)==0:
             print("It isn't windy!")
             return False
-        if GPIO.input(PIN_WIND)==0:
+        if GPIO.input(PIN_WIND)==1:
             print("It is windy!")
             return True
         return True
     def isItSunny(self):
-        if GPIO.input(PIN_SUNNY)==1:
+        if GPIO.input(PIN_SUNNY)==0:
             print("It isn't sunny!")
             return False
-        if GPIO.input(PIN_SUNNY)==0:
+        if GPIO.input(PIN_SUNNY)==1:
             print("It is sunny!")
             return True
         return False

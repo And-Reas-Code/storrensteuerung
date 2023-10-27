@@ -1,6 +1,26 @@
 #!/usr/bin/env python3
 import serial
 import pickle
+import RPi.GPIO as GPIO
+
+## Inputs / Outputs
+#PIN_REL_1 = 22
+#PIN_REL_2 = 23
+#PIN_REL_3 = 24
+#PIN_REL_4 = 25
+PIN_WIND = 19
+PIN_RAIN = 20
+PIN_SUNNY = 21
+
+## GPIO definitionen
+GPIO.setmode(GPIO.BCM)
+GPIO.setwarnings(False)
+GPIO.setup(PIN_WIND,GPIO.OUT)
+GPIO.output(PIN_WIND,GPIO.LOW)
+GPIO.setup(PIN_RAIN,GPIO.OUT)
+GPIO.output(PIN_RAIN,GPIO.LOW)
+GPIO.setup(PIN_SUNNY,GPIO.OUT)
+GPIO.output(PIN_SUNNY,GPIO.LOW)
 
 if __name__ == '__main__':
     ser = serial.Serial('/dev/ttyS0', 9600, timeout=1)
@@ -64,4 +84,21 @@ if __name__ == '__main__':
             if (sun_auto & (sun <= 80)):
                 print("Storre fährt aus - Sonne!")
 
-
+            if (rain):
+                GPIO.output(PIN_RAIN,GPIO.HIGH)
+                print("REGEN!")
+            else:
+                GPIO.output(PIN_RAIN,GPIO.LOW)
+                print("KEIN REGEN!")
+            if (wind >= 10):
+                GPIO.output(PIN_WIND,GPIO.HIGH)
+                print("WIND!")
+            else:
+                GPIO.output(PIN_WIND,GPIO.LOW)
+                print("KEIN WIND!")
+            if (sun <= 80):
+                GPIO.output(PIN_SUNNY,GPIO.HIGH)
+                print("SONNE!")
+            else:
+                GPIO.output(PIN_SUNNY,GPIO.LOW)
+                print("KEINE SONNE!")
