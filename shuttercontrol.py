@@ -2,8 +2,8 @@ import time
 import RPi.GPIO as GPIO
 
 ## Inputs / Outputs
-PIN_REL_1 = 22
-PIN_REL_2 = 23
+PIN_REL_1 = 23
+PIN_REL_2 = 22
 PIN_REL_3 = 24
 PIN_REL_4 = 25
 PIN_WIND = 19
