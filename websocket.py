@@ -262,7 +262,8 @@ class HttpServerWorker:
     def run(self):
         '''Start a simple webserver serving path on port'''
         print("Start HttpServer ...")
-        os.chdir('./wwwroot/')
+        #os.chdir('./wwwroot/')
+        os.chdir('/root/storrensteuerung/wwwroot/')
         httpd = HTTPServer(('', 80), CGIHTTPRequestHandler)
         httpd.serve_forever()
         print("End HttpServer ...")
